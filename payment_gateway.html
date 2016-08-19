@@ -11,6 +11,10 @@
 		min-height : 600px ;
 		background-color : #81d4fa ; 
 	}
+
+    div.selectMug {
+        display : none ;
+    }
 </style>
 <!-- Used for Image preview -->
 <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -21,6 +25,10 @@
 <script src="dist/rcrop.min.js" ></script>
 <link href="dist/rcrop.min.css" rel="stylesheet">
 <script>
+
+function showMugOptions() {
+    document.getElementById("select_mug").style.display = "inline";
+}
 
 function crop() {
 	$('#img').rcrop({
@@ -61,9 +69,32 @@ function crop() {
 <input type="file" name="img" accept="image/gif, image/jpeg, image/png" onchange="previewImage(this);">
 </form><br><br>
 <img id="img" alt="No image selected"/><br><br>
+<button onclick="crop();" name="crop" value="value">CROP</button><br><br>
+<a href="#select_mug"><button onclick="showMugOptions();" name="save" value="value">SAVE AND PROCEED</button></a><br><br><br>
+<div id="select_mug" class="selectMug"> 
+<h2>Select a mug</h2>
+<table width="50%">
+    <tr>
+    <td><img src="img1.png" alt="img1" height="50" width="50"></td>
+    <td><img src="img1.png" alt="img2" height="50" width="50"></td>
+    <td><img src="img1.png" alt="img3" height="50" width="50"></td>
+    <td><img src="img1.png" alt="img4" height="50" width="50"></td>
+    </tr>
+    <tr>
+    <td>Rs. 100</td>
+    <td>Rs. 100</td>
+    <td>Rs. 100</td>
+    <td>Rs. 100</td>
+    </tr>
+</table>
+<br><br>
+<h3>Total Price :</h3>
+<br>
+<button onclick="pay();" name="pay" value="value">PAY NOW</button><br><br>
+</div>
 </center>
-<button onclick="crop();" name="crop" value="value">CROP</button><br>
-<form>
+
+<!--<form>
     <div>
         <label for="width">width:</label> 
         <input id="width" type="text">
@@ -81,7 +112,7 @@ function crop() {
         <input id="y" type="text">
     </div>
     <input id="update" type="button" value="Apply changes">
-</form>
+</form>-->
 </div>
 
 
