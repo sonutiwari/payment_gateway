@@ -1,0 +1,14 @@
+div.main {
+		margin-left : 275px ;
+		padding-top : 50px ;
+		width : 700px ;
+		min-height : 600px ;
+		background-color : #81d4fa ; 
+	}
+
+div.selectMug {
+        display : none ;
+}
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }

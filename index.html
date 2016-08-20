@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Payment Gateway</title>
+        <!-- Used for Image preview -->
+        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+        <!-- Used for JQuery Cropping tool plugin -->
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="dist/rcrop.min.js" ></script>
+        <link href="dist/rcrop.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <!-- Using Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center">Upload image here</h2>
+                <center>
+                    <form action="payment.html">
+                        <label class="btn btn-primary btn-file">
+                            <input type="file" name="img" accept="image/gif, image/jpeg, image/png" onchange="previewImage(this);" style="none">
+                        </label>
+                    </form><br><br>
+                    <img id="img" alt="No image selected"/><br><br>
+                    <button onclick="crop();" name="crop" value="value" class="btn btn-primary">CROP</button><br><br>
+                    <a href="#select_mug">
+                        <button onclick="showMugOptions();" name="save" value="value" class="btn btn-primary">SAVE AND PROCEED</button>
+                    </a><br><br><br>
+
+                    <div id="select_mug" class="selectMug"> 
+                        <h2 class="text-center">Select a mug</h2>
+                        <div class="table-responsive">
+                        <table class="table active table-bordered table-hover">
+                            <tr>
+                                <td><img src="img1.png" alt="img1" height="50" width="50"></td>
+                                <td><img src="img1.png" alt="img2" height="50" width="50"></td>
+                                <td><img src="img1.png" alt="img3" height="50" width="50"></td>
+                                <td><img src="img1.png" alt="img4" height="50" width="50"></td>
+                            </tr>
+                            <tr>
+                                <td>Rs. 100</td>
+                                <td>Rs. 100</td>
+                                <td>Rs. 100</td>
+                                <td>Rs. 100</td>
+                            </tr>
+                        </table> 
+                            <br><br>
+                        </div>
+                        <h3>Total Price :</h3><br>
+                        <button onclick="pay();" name="pay" value="value" class="btn btn-primary">PAY NOW</button><br><br>
+                    </div>
+                </center>
+            </div>
+        </div>
+         <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+        	    var reader = new FileReader();
+        	    reader.onload = function(e) {
+        	        $('#img')
+        	            .attr('src', e.target.result)
+        	            .width(350)
+        	            .height(300);
+        	    };
+        	    reader.readAsDataURL(input.files[0]);
+           }
+        }
+    </script>
+    </body>
+</html>
